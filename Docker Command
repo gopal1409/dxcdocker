@@ -13,4 +13,10 @@ How to create your first container
    
    #we will run a container withgout putting --detach
     docker container run nginx
+    #check the running log of a container
+     40  docker rm webhost1
+   41  docker stop webhost1
+   42  docker rm webhost1
+   43  docker container run --publish 82:80 --name=webhost1 httpd
+
 
