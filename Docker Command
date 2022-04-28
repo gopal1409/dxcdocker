@@ -59,5 +59,19 @@ How to create your first container
   105  docker ps
   106  docker exec -it proxy ping my_nginx
   107  docker exec -it my_nginx ping proxy
+ # 110  docker volume ls
+  111  docker run -d --name mysql3 -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+  112  docker volume ls
+  113  docker volume inspect mysql-db
+  114  cd /var/lib/docker/volumes/mysql-db/_data
+  115  ls
+  116  docker exec -it mysql3 bash
+  mysql -u root -p
+  create database dxc;
+  exit
+  exit
+  ls
+  
+
 
 
