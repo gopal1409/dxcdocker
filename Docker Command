@@ -90,6 +90,9 @@ cd /usr/share/nginx/html
 cat index.html
 exit
 ############
-
+#######lets make changes in the index.html file#####
+151  echo " i am making changes to index.html from my docker container machine - $(hostname)" > index.html
+######
+refresh the web page you will see the new content
 
 
