@@ -73,5 +73,17 @@ How to create your first container
   ls
   
 
+#########how to attach a local volume #####################
+ 131  mkdir -p docker-share/html
+  132  ls
+  133  cd docker-share/
+   cd html/
+  138  pwd
+  139  echo "this is my index.html from host machine with hostname - $(hostname)"> index.html
+  140  cat index.html
+  141  docker ps
+  142  docker run -d -p 80:80 -v ~/docker-share/html:/usr/share/nginx/html --hostname nginx-container nginx
+  143  docker ps
+
 
 
