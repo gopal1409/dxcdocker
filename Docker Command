@@ -49,5 +49,15 @@ How to create your first container
    ######copy the password from the logs pase it you will get mysql prompt
    #finally do two time exit
 
+#docker networking
+ 99  docker network create my_app_net
+  100  docker network ls
+ 
+  102  docker run -d --name my_nginx --network my_app_net nginx:alpine
+  103  docker ps
+  104  docker run -d --name proxy --network my_app_net nginx:alpine
+  105  docker ps
+  106  docker exec -it proxy ping my_nginx
+  107  docker exec -it my_nginx ping proxy
 
 
