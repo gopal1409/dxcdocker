@@ -25,6 +25,20 @@ How to create your first container
    52  docker ps
    53  docker ps -a
    54  docker container prune
+   #####################how to check container are running as procerss#################
+ 58  docker run --name mongo -d mongo
+   59  docker ps
+   60  docker top mongo
+   61  ps aux
+   62  docker ps
+   63  docker top mongo
+   64  kill -p 5818
+   65  kill -9 5818
+   66  docker ps
+   67  docker ps -a
+   68  top
+   69  ps
+   70  ps aux
 
 
 
