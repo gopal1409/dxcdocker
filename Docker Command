@@ -84,6 +84,10 @@ How to create your first container
   141  docker ps
   142  docker run -d -p 80:80 -v ~/docker-share/html:/usr/share/nginx/html --hostname nginx-container nginx
   143  docker ps
+  #########how to verify#######
+   148  docker exec -it 2e21 bash
+cd /usr/share/nginx/html
+cat index.html
 
 
 
