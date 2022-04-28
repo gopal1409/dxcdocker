@@ -39,6 +39,15 @@ How to create your first container
    68  top
    69  ps
    70  ps aux
+   #How to deploy a mysql container with environment
+    78  docker run -d -p 3306:3306 --name=db -e MYSQL_RANDOM_ROOT_PASSWORD=true mysql
+   79  docker ps
+   80  docker logs db
+   81  docker exec -it db bash
+   #once you login inside the container
+   mysql -u root -p
+   ######copy the password from the logs pase it you will get mysql prompt
+   #finally do two time exit
 
 
 
