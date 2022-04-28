@@ -18,5 +18,13 @@ How to create your first container
    41  docker stop webhost1
    42  docker rm webhost1
    43  docker container run --publish 82:80 --name=webhost1 httpd
+   
+   #how to delete and prune all your stopped container
+    50  docker ps
+   51  docker rm 4c1e f3b 27 9f33 8ae 8df0 --force
+   52  docker ps
+   53  docker ps -a
+   54  docker container prune
+
 
 
