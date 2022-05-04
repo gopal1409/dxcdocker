@@ -1,0 +1,7 @@
+ 21  apt install default-jdk
+   22  curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+   23  echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+   24  sudo apt-get update
+   25  sudo apt-get install jenkins
+   26  systemctl start jenkins
+   27  systemctl status jenkins
