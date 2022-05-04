@@ -1,0 +1,12 @@
+########Jenkins Integration with Git##########
+30  git clone https://github.com/gopal1409/springtomcatchatapp.git
+
+   32  cd springtomcatchatapp/
+   33  ls
+   34  rm -rf .git
+   35  git init
+   36  git add .
+   37  git commit -m "spring chat app"
+  ####create a private repo and add it inside your folder####push
+   38  git remote add origin https://github.com/gopal1409/springchatapp.git
+   39  git push
