@@ -10,3 +10,5 @@
   ####create a private repo and add it inside your folder####push
    38  git remote add origin https://github.com/gopal1409/springchatapp.git
    39  git push -u origin master
+   #############integrate jenkins with maven#############
+   apt install maven
