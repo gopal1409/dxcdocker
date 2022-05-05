@@ -1,0 +1,10 @@
+#########ansible master configuration###########
+19  hostnamectl set-hostname --static ansiblemaster
+   20  exit
+####after changing the host name#######
+sudo -i
+22  apt-get update
+25  python3 --version
+26  apt install ansible
+   27  ssh-keygen -t rsa
+ansible --version
