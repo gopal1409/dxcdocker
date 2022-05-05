@@ -1,1 +1,7 @@
+ansible ad hoc command
+ 75  ansible all -m command -a "uptime"
+   76  ansible all -m command -a "free -m"
+
+   78  ansible all -m command -a "df -h"
+   79  ansible all -m command -a "cat /etc/passwd"
 
