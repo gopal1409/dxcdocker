@@ -4,4 +4,18 @@ ansible ad hoc command
 
    78  ansible all -m command -a "df -h"
    79  ansible all -m command -a "cat /etc/passwd"
+   ####
+   84  ansible client -m group -a "name=weblogic state=present"
+   85  ansible client -m user -a "name=weblogic group=weblogic createhome=yes"
+ 88  ansible client -m file -a "path=/tmp/x state=directory mode=0755"
+   89  ssh root@client
+#######verify the same in cd /tmp
+ls -la
+exit
+######change the permission
+ 91  ansible client -m file -a "path=/tmp/x group=weblogic owner=weblogic"
+   92  ssh root@client
+   cd /tmp
+   ls -la
+   exit
 
