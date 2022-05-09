@@ -4,3 +4,13 @@
   194  ansible-galaxy init apache
   195  apt install tree
   196  tree apache
+  ######creating some role#####
+  201  touch apache/tasks/install.yml
+  202  touch apache/tasks/configure.yml
+  203  touch apache/tasks/service.yml
+  204  nano apache/tasks/install.yml
+  #######inside install.yml
+  ---
+  - name: install apache2
+    apt: name=apache2 state=latest
+
