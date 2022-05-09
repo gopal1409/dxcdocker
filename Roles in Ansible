@@ -36,6 +36,14 @@ root@ansiblemaster:~/roles# cat apache/tasks/service.yml
   - apache
 #####excute the role
 222  ansible-playbook apacheweb.yml
+#####configuring main.yml in task
+nano apache/tasks/main.yml
+root@ansiblemaster:~/roles# cat apache/tasks/main.yml
+---
+# tasks file for apache
+- include_tasks: install.yml
+- include_tasks: configure.yml
+- include_tasks: service.yml
 
   
 
