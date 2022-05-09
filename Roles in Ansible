@@ -60,7 +60,7 @@ tomcat_download_location: /usr/share/tomcat/apache-tomcat-9.0.62.tar.gz
 #####tomcat task##########
 nano tomcat/tasks/main.yml
 - name: update my ubuntu system
-     apt:
+  apt:
        update_cache: yes
 - name: install openjdk
   apt:
