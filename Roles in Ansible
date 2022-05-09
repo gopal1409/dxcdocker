@@ -27,4 +27,15 @@ root@ansiblemaster:~/roles# cat apache/tasks/service.yml
 ---
 - name: start and enable httpd
   service: name=apache2 state=restarted enabled=yes
+  #########Role execution
+   220  nano apacheweb.yml
+   root@ansiblemaster:~/roles# cat apacheweb.yml
+---
+- hosts: client
+  roles:
+  - apache
+#####excute the role
+222  ansible-playbook apacheweb.yml
+
+  
 
