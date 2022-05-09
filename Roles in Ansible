@@ -49,5 +49,85 @@ root@ansiblemaster:~/roles# cat apache/tasks/main.yml
   238  ansible-galaxy init tomcat
   239  ls
   240  tree
+########tomcat role
+####varaible
+nano tomcat/vars/main.yml
+root@ansiblemaster:~/roles# cat tomcat/vars/main.yml
+---
+# vars file for tomcat
+tomcat_download_url: "https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.62/bin/apache-tomcat-9.0.62.tar.gz"
+tomcat_download_location: /usr/share/tomcat/apache-tomcat-9.0.62.tar.gz
+#####tomcat task##########
+nano tomcat/tasks/main.yml
+- name: update my ubuntu system
+     apt:
+       update_cache: yes
+- name: install openjdk
+  apt:
+       name: default-jdk
+       state: present
+- name: add the group tomcat
+  group:
+      name: tomcat
+      state: present
+- name: add a user tomcat
+  user:
+       name: tomcat
+       group: tomcat
+       home: /usr/share/tomcat
+       createhome: no
+       state: present
+- name: create a tomcat directory
+  file:
+       path: /usr/share/tomcat
+       state: directory
+       owner: tomcat
+       group: tomcat
+- name: download tomcat
+  get_url:
+       url: "{{ tomcat_download_url }}"
+       dest: "{{ tomcat_download_location }}"
+- name: unarchive the tomcat
+  unarchive:
+       src: "{{ tomcat_download_location }}"
+       dest: /usr/share/tomcat
+       owner: tomcat
+       group: tomcat
+       remote_src: yes
+       extra_opts: "--strip-components=1"
+- name: copy the tomcat service file
+  template:
+       src: templates/tomcat.service.j2
+       dest: /etc/systemd/system/tomcat.service
+     when: ansible_service_mgr == "systemd"
+- name: Start and enable tomcat
+  service:
+       daemon_reload: yes
+       name: tomcat
+       state: started
+       enabled: yes
+     when: ansible_service_mgr == "systemd"
+#############in template we will put the j2#####
 
+nano tomcat/templates/tomcat.service.j2
 
+[Unit]
+Description=Tomcat
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment=JAVA_HOME=/usr/lib/jvm/default-java
+Environment=CATALINA_HOME=/usr/share/tomcat
+Environment=CATALINA_BASE=/usr/share/tomcat
+Environment=CATALINA_PID=/usr/share/tomcat/temp/tomcat.pid
+
+ExecStart=/usr/share/tomcat/bin/startup.sh
+ExecStop=/usr/share/tomcat/bin/shutdown.sh
+
+[Install]
+	WantedBy=multi-user.target
