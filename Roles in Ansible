@@ -45,5 +45,9 @@ root@ansiblemaster:~/roles# cat apache/tasks/main.yml
 - import_tasks: configure.yml
 - import_tasks: service.yml
 
-  
+  ###########intialized tomcat role#######
+  238  ansible-galaxy init tomcat
+  239  ls
+  240  tree
+
 
