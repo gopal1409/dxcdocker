@@ -1,0 +1,6 @@
+########how to create roles#########
+ 192  mkdir roles
+  193  cd roles
+  194  ansible-galaxy init apache
+  195  apt install tree
+  196  tree apache
