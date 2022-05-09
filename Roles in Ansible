@@ -13,4 +13,11 @@
   ---
   - name: install apache2
     apt: name=apache2 state=latest
-
+####lets configure the role##3
+root@ansiblemaster:~/roles# cat apache/tasks/configure.yml
+---
+- name: copy index.html
+  copy: src=files/index.html dest=/var/www/html/index.html
+nano apache/files/index.html
+root@ansiblemaster:~/roles# cat apache/files/index.html
+this is the role we have created using ansible
