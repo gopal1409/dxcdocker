@@ -41,9 +41,9 @@ nano apache/tasks/main.yml
 root@ansiblemaster:~/roles# cat apache/tasks/main.yml
 ---
 # tasks file for apache
-- include_tasks: install.yml
-- include_tasks: configure.yml
-- include_tasks: service.yml
+- import_tasks: install.yml
+- import_tasks: configure.yml
+- import_tasks: service.yml
 
   
 
