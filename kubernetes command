@@ -1,2 +1,6 @@
 kubectl get nodes
 kubectl get pod --all-namespaces
+#imperative way to deploy your containers
+ 26  kubectl run my-first-pod --image stacksimplify/kubenginx:1.0.0
+   27  kubectl get pod
+   28  kubectl describe pod my-first-pod
