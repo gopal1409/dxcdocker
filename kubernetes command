@@ -4,3 +4,6 @@ kubectl get pod --all-namespaces
  26  kubectl run my-first-pod --image stacksimplify/kubenginx:1.0.0
    27  kubectl get pod
    28  kubectl describe pod my-first-pod
+#expose my application outside the cluster kube-proxy
+ 31  kubectl expose pod my-first-pod --type=NodePort --port=80 --name=my-frist-service
+   32  kubectl get svc
