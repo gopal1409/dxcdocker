@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "maven"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git credentialsId: 'git-token', url: 'https://github.com/gopal1409/springapp1.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                }
+          }
+        stage('mvn test') {
+            steps {
+                  sh "mvn test"
+                }
+          }  
+        stage('Test Report') {
+            steps {
+                  junit 'target/surefire-reports/*.xml'
+                }
+          }   
+        stage('Check Style') {
+            steps {
+                  sh 'mvn checkstyle:checkstyle'
+                }
+          }  
+     }
+}
