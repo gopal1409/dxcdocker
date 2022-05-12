@@ -12,3 +12,15 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 219  cat /var/lib/jenkins/secrets/initialAdminPassword
 221  usermod -aG docker jenkins
   222  service jenkins restart
+  ##########clone a project and upload it in our own repo########
+  229  git clone https://github.com/gopal1409/springchat.git
+  230  cd springchat/
+  231  rm -rf .git
+  232  git init
+  233  git add .
+  234  git commit -m "spring chat app"
+  ############go to github.com#####create a private repo
+  
+  235  git remote add origin https://github.com/gopal1409/springapp1.git
+  236  git push -u origin master
+
