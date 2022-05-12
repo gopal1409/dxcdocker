@@ -26,7 +26,8 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 ####how to create eks cluster.####
 in your vm you need to install some package
 1. setup aws cli
-authentication with aws. 
+authentication with aws.
+####to configure your access key and secret access key(aws configure####
 2. you need to setup kubectl 
 3. to manage eks you need to setup eksctl
  230  apt install unzip
