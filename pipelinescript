@@ -34,5 +34,15 @@ pipeline {
                   sh 'mvn checkstyle:checkstyle'
                 }
           }  
+        stage('Check Style View') {
+            steps {
+                  sh 'mvn checkstyle:checkstyle'
+                }
+          }  
+          stage('Check Style Report') {
+            steps {
+                  recordIssues(tools: [checkStyle(pattern: 'target/checkstyle-result.xml')])
+                }
+          }  
      }
 }
