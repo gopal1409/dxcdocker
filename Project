@@ -23,4 +23,15 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
   
   235  git remote add origin https://github.com/gopal1409/springapp1.git
   236  git push -u origin master
+####how to create eks cluster.####
+in your vm you need to install some package
+1. setup aws cli
+authentication with aws. 
+2. you need to setup kubectl 
+3. to manage eks you need to setup eksctl
+ 230  apt install unzip
+  231  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  232  unzip awscliv2.zip
+  233  sudo ./aws/install
+  234  aws --version
 
