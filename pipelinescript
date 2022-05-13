@@ -64,13 +64,15 @@ pipeline {
                   }
                 }
           } 
-          stage('Push EKS') {
+          stage('Push to k8s') {
             steps {
                   script {
-                      sh 'kubectl apply -f k8s-deployment.yaml'
-                      }
+                      withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8s', namespace: '', serverUrl: '') {
+                       sh 'kubectl apply -f k8s-deployment.yml'
+                     }
                   }
                 }
+          }  
           
      }
 }
